@@ -103,8 +103,9 @@ function MeshBackground() {
     const canvas = canvasRef.current
     const shell = canvas.parentElement
     const transition = shell.querySelector('.mesh-transition')
-    const gl = canvas.getContext('webgl', { alpha: true, antialias: true, powerPreference: 'high-performance' })
+    const gl = canvas.getContext('webgl', { alpha: true, antialias: true })
     if (!gl) return
+    canvas.classList.add('mesh-webgl')
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const pointer = { x: 0, y: 0, targetX: 0, targetY: 0, strength: 0, targetStrength: 0 }
@@ -322,6 +323,7 @@ function MeshBackground() {
 
     return () => {
       cancelAnimationFrame(frame)
+      canvas.classList.remove('mesh-webgl')
       observer.disconnect()
       shell.removeEventListener('pointermove', move)
       shell.removeEventListener('pointerleave', leave)
