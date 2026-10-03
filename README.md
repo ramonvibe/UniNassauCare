@@ -1,35 +1,130 @@
-# React + Vite
+# 🎫 nassauTickets
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sistema Web para **controle de atendimento de um Laboratório de Análises Clínicas**, desenvolvido como atividade acadêmica para aplicar conceitos de React, desenvolvimento Web, APIs REST, Git/GitHub e organização de projetos.
 
-Currently, two official plugins are available:
+## 📌 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O sistema permite:
 
-## React Compiler
+- Emissão de senhas;
+- Gerenciamento da fila de atendimento;
+- Chamada e rechamada de senhas;
+- Início e finalização de atendimentos;
+- Painel com as últimas senhas chamadas;
+- Autenticação de atendentes;
+- Geração de relatórios e auditoria.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Tipos de senha
 
-## Expanding the Oxlint configuration
+| Código | Descrição |
+|---|---|
+| `SP` | Senha Prioritária |
+| `SG` | Senha Geral |
+| `SE` | Retirada de Exames |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+A prioridade de atendimento segue:
 
+```text
+[SP] → [SE|SG] → [SP] → [SE|SG]
+```
 
-# SOBRE O PROJETO
-ATUALMENTE SOMENTE DADOS MOCKADOS. SEM BANCO DE DADOS. SEM BACK-END. NÃO É UM MVP, APENAS MOCK DA LANDING PAGE E DAS TELAS DE LOGIN.
+As senhas seguem o padrão:
 
-# INSTALAÇÃO
+```text
+YYMMDD-PPSQ
+```
 
-cole no seu terminal:
-git clone https://github.com/ramonvibe/UniNassauCare
-cd UniNassauCare
-npm install --legacy-peer-deps
-npm run dev;
+Exemplo: `261001-SP001`.
 
-caso não funcione:
+## 🛠️ Tecnologias
 
-dentro de UniNassauCare
-cd nassaucare-landing
-npm install --legacy-peer-deps
+**Frontend**
+- React
+- JavaScript
+- HTML/CSS
+- API REST / JSON
+
+**Backend**
+- `[Tecnologia escolhida pelo grupo]`
+
+**Banco de dados**
+- MySQL 8.0
+
+**Versionamento**
+- Git e GitHub
+
+> A escolha da tecnologia do backend deverá ser justificada pelo grupo.
+
+## 📁 Estrutura
+
+```text
+nassauTickets/
+├── backend/
+├── docs/
+│   ├── branding/
+│   ├── mer/
+│   ├── mockups/
+│   ├── models/
+│   │   └── uml/
+│   └── requirements/
+├── frontend/
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+## 🚀 Instalação e execução
+
+Clone o projeto:
+
+```bash
+git clone https://github.com/SEU-USUARIO/nassauTickets.git
+cd nassauTickets
+```
+
+Instale e execute o frontend:
+
+```bash
+cd frontend
+npm install
 npm run dev
+```
+
+Para o backend, consulte as instruções correspondentes à tecnologia escolhida pelo grupo.
+
+## 🌿 Branches
+
+O projeto utiliza:
+
+- `main` — versão integrada do projeto;
+- `dev` — desenvolvimento.
+
+O código deverá ser desenvolvido inicialmente na `dev` e posteriormente integrado à `main` por meio de merge.
+
+Exemplos de commits:
+
+```text
+feat: implementa emissão de senha
+feat: implementa fila de atendimento
+fix: corrige regra de prioridade
+docs: atualiza documentação
+```
+
+## 📄 Licença
+
+Este projeto utiliza a licença **MIT**.
+
+## 🎓 Sobre
+
+Projeto acadêmico desenvolvido com o objetivo de aplicar práticas de **desenvolvimento Web, React, documentação, trabalho em equipe e versionamento com Git/GitHub**.
+
+## Membros
+
+| Nome | Matrícula | Papel |
+|---|---|---|
+| Ramon Monteiro Neto Filho | 01908981 | Scrum Master |
+| Edson Rafael da Silva Filho | 01180144 | Testador |
+| Cauã Moura Costa | 01888216 | Desenvolvedor |
+| Pedro Henrique Barbosa Cabral | 01885327 | Documentador |
+| Daniel Tavares de Oliveira Souza | 01889356 | Desenvolvedor |
+| Filipe Augusto Galdino dos Santos | 01909125 | Testador |
