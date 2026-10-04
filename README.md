@@ -1,124 +1,105 @@
-# 🎫 nassauTickets
+# UniNassauCare
 
-Sistema Web para **controle de atendimento de um Laboratório de Análises Clínicas**, desenvolvido como atividade acadêmica para aplicar conceitos de React, desenvolvimento Web, APIs REST, Git/GitHub e organização de projetos.
+MVP acadêmico para organização de filas e atendimentos em ambiente hospitalar. A proposta é oferecer uma experiência clara para pacientes e uma visão operacional para colaboradores da unidade.
 
-## 📌 Funcionalidades
+## Estado atual
 
-O sistema permite:
+O frontend contém uma landing page e fluxos demonstrativos executados apenas no navegador. Os dados são mocks e voltam ao estado inicial ao recarregar a página.
 
-- Emissão de senhas;
-- Gerenciamento da fila de atendimento;
-- Chamada e rechamada de senhas;
-- Início e finalização de atendimentos;
-- Painel com as últimas senhas chamadas;
-- Autenticação de atendentes;
-- Geração de relatórios e auditoria.
+### Portal do paciente
 
-### Tipos de senha
+- Login demonstrativo;
+- visualização da senha de atendimento;
+- posição e previsão da fila;
+- identificação de prioridade;
+- sala, serviço e profissional responsável.
 
-| Código | Descrição |
-|---|---|
-| `SP` | Senha Prioritária |
-| `SG` | Senha Geral |
-| `SE` | Retirada de Exames |
+### Área do colaborador
 
-A prioridade de atendimento segue:
+- Resumo das filas normal e prioritária;
+- lista de pacientes aguardando;
+- painel do próximo paciente;
+- painel de televisão com relógio em tempo real e próximas senhas;
+- chamada simulada de uma senha;
+- cadastro simulado de novo atendimento;
+- dados administrativos de paciente, serviço, profissional e destino.
 
-```text
-[SP] → [SE|SG] → [SP] → [SE|SG]
-```
+### Aparência e acessibilidade
 
-As senhas seguem o padrão:
+- Alternância entre temas claro e escuro em toda a aplicação;
+- preferência de tema mantida no navegador;
+- animações reduzidas automaticamente quando o sistema solicita menos movimento;
+- painel de televisão sem exposição do nome do paciente.
 
-```text
-YYMMDD-PPSQ
-```
+## Acessos de demonstração
 
-Exemplo: `261001-SP001`.
+| Perfil | Usuário | Senha |
+|---|---|---|
+| Paciente | `paciente` | `paciente` |
+| Colaborador | `colaborador` | `colaborador` |
 
-## 🛠️ Tecnologias
+> Este MVP não possui autenticação real e não deve receber dados pessoais ou clínicos verdadeiros.
 
-**Frontend**
-- React
-- JavaScript
-- HTML/CSS
-- API REST / JSON
+## Tecnologias
 
-**Backend**
-- `[Tecnologia escolhida pelo grupo]`
+- React 19;
+- Vite;
+- Tailwind CSS;
+- Java 21 e Spring Boot no backend inicial;
+- Maven Wrapper.
 
-**Banco de dados**
-- MySQL 8.0
-
-**Versionamento**
-- Git e GitHub
-
-> A escolha da tecnologia do backend deverá ser justificada pelo grupo.
-
-## 📁 Estrutura
+## Estrutura
 
 ```text
-nassauTickets/
-├── backend/
-├── docs/
-│   ├── branding/
-│   ├── mer/
-│   ├── mockups/
-│   ├── models/
-│   │   └── uml/
-│   └── requirements/
-├── frontend/
-├── .gitignore
+UniNassauCare/
+├── backend/   # Estrutura inicial da API Spring Boot
+├── docs/      # Documentação do projeto
+├── frontend/  # Landing page e portais demonstrativos
 ├── LICENSE
 └── README.md
 ```
 
-## 🚀 Instalação e execução
+## Executar o frontend
 
-Clone o projeto:
-
-```bash
-git clone https://github.com/SEU-USUARIO/nassauTickets.git
-cd nassauTickets
-```
-
-Instale e execute o frontend:
+Depois de baixar ou clonar o projeto, entre na pasta do repositório e execute o frontend:
 
 ```bash
+cd UniNassauTickets
 cd frontend
 npm install
 npm run dev
 ```
 
-Para o backend, consulte as instruções correspondentes à tecnologia escolhida pelo grupo.
+O Vite exibirá o endereço local no terminal, normalmente `http://localhost:5173`.
 
-## 🌿 Branches
+Para validar a versão de produção:
 
-O projeto utiliza:
-
-- `main` — versão integrada do projeto;
-- `dev` — desenvolvimento.
-
-O código deverá ser desenvolvido inicialmente na `dev` e posteriormente integrado à `main` por meio de merge.
-
-Exemplos de commits:
-
-```text
-feat: implementa emissão de senha
-feat: implementa fila de atendimento
-fix: corrige regra de prioridade
-docs: atualiza documentação
+```bash
+npm run build
+npm run lint
 ```
 
-## 📄 Licença
+## Executar o backend
 
-Este projeto utiliza a licença **MIT**.
+O backend ainda não está integrado aos mocks do frontend. Com o JDK 21 instalado:
 
-## 🎓 Sobre
+```bash
+cd backend
+./mvnw spring-boot:run
+```
 
-Projeto acadêmico desenvolvido com o objetivo de aplicar práticas de **desenvolvimento Web, React, documentação, trabalho em equipe e versionamento com Git/GitHub**.
+## Regras de fila representadas no mock
 
-## Membros
+- `UNI-P###`: atendimento prioritário;
+- `UNI-N###`: atendimento normal;
+- a interface diferencia visualmente pacientes aguardando, próximos e chamados;
+- a lógica exibida é demonstrativa e ainda não representa uma regra clínica definitiva.
+
+## Segurança e privacidade
+
+Este repositório é um protótipo educacional. Antes de uso real, será necessário implementar autenticação, autorização por perfil, persistência segura, auditoria, proteção de dados e adequação à LGPD.
+
+## Equipe
 
 | Nome | Matrícula | Papel |
 |---|---|---|
@@ -128,3 +109,7 @@ Projeto acadêmico desenvolvido com o objetivo de aplicar práticas de **desenvo
 | Pedro Henrique Barbosa Cabral | 01885327 | Documentador |
 | Daniel Tavares de Oliveira Souza | 01889356 | Desenvolvedor |
 | Filipe Augusto Galdino dos Santos | 01909125 | Testador |
+
+## Licença
+
+Distribuído sob a licença MIT.
