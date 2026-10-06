@@ -88,6 +88,19 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
+## Testes realizados
+
+Durante a validação do MVP, foram verificados os seguintes fluxos:
+
+- Login demonstrativo dos perfis de paciente e colaborador;
+- Exibição da senha e posição na fila;
+- Diferenciação entre atendimento normal e prioritário;
+- Chamada simulada de pacientes;
+- Cadastro simulado de novo atendimento;
+- Alternância entre tema claro e escuro;
+- Funcionamento do painel de televisão;
+- Responsividade da interface em diferentes tamanhos de tela.
+
 ## Regras de fila representadas no mock
 
 - `UNI-P###`: atendimento prioritário;
