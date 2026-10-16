@@ -1,0 +1,81 @@
+[1mdiff --git a/backend/pom.xml b/backend/pom.xml[m
+[1mindex 16a7ddf..bdec693 100644[m
+[1m--- a/backend/pom.xml[m
+[1m+++ b/backend/pom.xml[m
+[36m@@ -32,7 +32,7 @@[m
+ 	<dependencies>[m
+ 		<dependency>[m
+ 			<groupId>org.springframework.boot</groupId>[m
+[31m-			<artifactId>spring-boot-starter</artifactId>[m
+[32m+[m			[32m<artifactId>spring-boot-starter-webmvc</artifactId>[m
+ 		</dependency>[m
+ [m
+ 		<dependency>[m
+[1mdiff --git a/backend/src/main/java/com/nassautickets/backend/BackendApplication.java b/backend/src/main/java/com/nassautickets/backend/BackendApplication.java[m
+[1mindex fef3ec2..10e344f 100644[m
+[1m--- a/backend/src/main/java/com/nassautickets/backend/BackendApplication.java[m
+[1m+++ b/backend/src/main/java/com/nassautickets/backend/BackendApplication.java[m
+[36m@@ -9,5 +9,4 @@[m [mpublic class BackendApplication {[m
+ 	public static void main(String[] args) {[m
+ 		SpringApplication.run(BackendApplication.class, args);[m
+ 	}[m
+[31m-[m
+[31m-}[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/backend/src/main/java/com/nassautickets/backend/controller/HealthController.java b/backend/src/main/java/com/nassautickets/backend/controller/HealthController.java[m
+[1mindex c370146..e706633 100644[m
+[1m--- a/backend/src/main/java/com/nassautickets/backend/controller/HealthController.java[m
+[1m+++ b/backend/src/main/java/com/nassautickets/backend/controller/HealthController.java[m
+[36m@@ -1,12 +1,13 @@[m
+ package com.nassautickets.backend.controller;[m
+[32m+[m
+ import org.springframework.web.bind.annotation.GetMapping;[m
+ import org.springframework.web.bind.annotation.RestController;[m
+ [m
+[31m-    @RestController[m
+[31m-    public class HealthController {[m
+[32m+[m[32m@RestController[m
+[32m+[m[32mpublic class HealthController {[m
+ [m
+[31m-        @GetMapping("/api/Health")[m
+[31m-        public String health(){[m
+[31m-            return "NassauTickets API funcionando!";[m
+[31m-        }[m
+[31m-}[m
+[32m+[m[32m    @GetMapping("/api/health")[m
+[32m+[m[32m    public String health() {[m
+[32m+[m[32m        return "NassauTickets API funcionando!";[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/backend/src/main/resources/application.properties b/backend/src/main/resources/application.properties[m
+[1mindex 3ca17a4..107d9b1 100644[m
+[1m--- a/backend/src/main/resources/application.properties[m
+[1m+++ b/backend/src/main/resources/application.properties[m
+[36m@@ -1 +1,10 @@[m
+[31m-spring.application.name=backend[m
+[32m+[m[32mspring.application.name=nassauTickets[m
+[32m+[m
+[32m+[m[32mspring.datasource.url=jdbc:mysql://localhost:3306/nassautickets[m
+[32m+[m[32mspring.datasource.username=root[m
+[32m+[m[32mspring.datasource.password=root[m
+[32m+[m
+[32m+[m[32mspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver[m
+[32m+[m
+[32m+[m[32mspring.jpa.hibernate.ddl-auto=none[m
+[32m+[m[32mspring.jpa.show-sql=true[m
+\ No newline at end of file[m
+[1mdiff --git a/frontend/src/main.jsx b/frontend/src/main.jsx[m
+[1mindex b9a1a6d..efc2c9f 100644[m
+[1m--- a/frontend/src/main.jsx[m
+[1m+++ b/frontend/src/main.jsx[m
+[36m@@ -1,7 +1,7 @@[m
+ import { StrictMode } from 'react'[m
+ import { createRoot } from 'react-dom/client'[m
+ import './index.css'[m
+[31m-import App from './App.jsx'[m
+[32m+[m[32mimport App from '.App.jsx'[m
+ [m
+ createRoot(document.getElementById('root')).render([m
+   <StrictMode>[m
